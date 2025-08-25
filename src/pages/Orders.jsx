@@ -7,7 +7,7 @@ function Orders() {
     <div>
       <h2>Orders Content</h2>
       <OrdersTable />
-      <OrdersOverview />
+      {/* <OrdersOverview /> */}
     </div>
   )
 }

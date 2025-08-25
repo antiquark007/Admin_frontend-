@@ -1,0 +1,339 @@
+/* === Container and Dashboard Layout === */
+.orders-container {
+  background: #f8fafc;
+  font-family: 'Inter', Arial, sans-serif;
+  
+  
+  width: 1121px;
+  height: 814px;
+  padding: 32px 0;
+  opacity: 1;
+  transform: rotate(0deg);
+
+  /* position: absolute; needed for top/left to work */
+  top: 430px;
+  left: 265px;
+}
+
+
+/* Center dash cards, table card, controls, and pagination */
+.dash-cards,
+.orders-table-card,
+.pages,
+.controls {
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* === Dashboard Cards (KPI) === */
+.dash-cards {
+  display: flex;
+  gap: 32px;
+  margin-bottom: 38px;
+}
+.dash-card {
+  flex: 1;
+  border-radius: 25px;
+  background: #fff4;
+  padding: 32px 24px 24px 32px;
+  box-shadow: 0 6px 22px 0 #dbdbdb1a;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.dash-card.purple { background: #f2edfa; }
+.dash-card.green { background: #e5f8ee; }
+.dash-card.yellow { background: #fff8e5; }
+.dash-card.red { background: #feeeee; }
+.dash-value { font-size: 2.25rem; font-weight: 700; color: #1e2040; }
+.dash-label { color: #454458; margin-top: 8px; font-size: 1.08rem; font-weight: 500;}
+.dash-trend { margin-top: 14px; font-size: 1rem; color: #888;}
+.dash-trend.up { color: #2ecc40; }
+.dash-trend.down { color: #e94a4a; }
+
+/* Controls */
+.controls {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;       /* allows wrapping on small screens */
+  gap: 14px;
+  width: 1121px;
+  height: 62px;
+  padding: 15px 16px;
+  background: #FFFFFF;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  transform: rotate(0deg);
+  opacity: 1;
+}
+
+/* Show entries section */
+.show-entries {
+  font-size: 1rem;
+  color: #555;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.controls select,
+.controls .show-entries select {
+  border-radius: 9px;
+  border: 1.2px solid #e5e7eb;
+  background: #E0E0E0;
+  padding: 8px 18px;
+  color: #444;
+  font-size: 1rem;
+  margin: 0 2px;
+  outline: none;
+  cursor: pointer;
+}
+
+/* Search bar */
+.search-bar {
+  position: relative;
+  width: 270px;
+}
+
+.search-bar .icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #bbb;
+  font-size: 1.1rem;
+  pointer-events: none;
+}
+
+.search-bar input {
+  padding: 10px 16px 10px 42px;
+  background: #fff;
+  border: 1.2px solid #e5e7eb;
+  border-radius: 9px;
+  font-size: 1.06rem;
+  width: 100%;
+  outline: none;
+  transition: border-color 0.18s;
+}
+
+.search-bar input:focus {
+  border-color: #a78bfa;
+  background: #fafcff;
+}
+
+/* Filter buttons */
+.controls button {
+  padding: 8px 16px;
+  border: 1.2px solid #e5e7eb;
+  border-radius: 9px;
+  background: #f3f4f6;
+  font-size: 1rem;
+  color: #444;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.controls button:hover {
+  background: #e5e7eb;
+  border-color: #d1d5db;
+}
+
+/* === Table Card & Table === */
+.orders-table-card {
+  background: #f5f5f7;
+  border-radius: 22px;
+  box-shadow: 0 6px 32px 0 #8e99af11;
+  overflow: visible;
+  margin: 28px auto 0 auto;
+  max-width: 1100px;
+  padding: 20px 24px 28px 24px;
+}
+
+/* Table Styles */
+.orders-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  background: none;
+  table-layout: auto;
+}
+
+/* Default all text black */
+.orders-table th,
+.orders-table td {
+  padding: 14px 16px;
+  font-size: 0.95rem;
+  vertical-align: middle;
+  color: #000; /* Set all text to black */
+  background: none;
+  border: none;
+  box-sizing: border-box;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Header style */
+.orders-table th {
+  background: #f5f5f7;
+  text-transform: none;          /* no uppercase */
+  font-size: 1.0rem;
+  font-weight: 600;
+  color: #222;                   /* Dark color for headers */
+  letter-spacing: 0.02em;
+  border-top-left-radius: 22px;
+  border-top-right-radius: 22px;
+}
+
+/* Alternate row backgrounds */
+.orders-table tbody tr:nth-child(even) {
+  background: #f6f4fd;
+}
+.orders-table tbody tr:nth-child(odd) {
+  background: #fff;
+}
+
+/* Product column with image */
+.orders-table .td-product {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  max-width: 170px;
+}
+.orders-table .td-product img {
+  width: 32px;
+  height: 32px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid #eee;
+}
+
+/* Additional cell styling */
+.orders-table .td-date {
+  color: #b9b9b9;
+  font-size: 0.9rem;
+}
+.orders-table .td-amount {
+  font-weight: 600;
+  color: #574b90;
+  font-size: 1em;
+}
+
+/* Override color for Status column only */
+.orders-table td:nth-child(7),
+.orders-table th:nth-child(7) {
+  color: inherit; /* Use status badge color */
+}
+
+/* Status badges */
+.status {
+  display: inline-block;
+  padding: 5px 16px;
+  border-radius: 30px;
+  font-size: 0.93em;
+  font-weight: 500;
+  background: #f7f7fa;
+  border: none;
+  min-width: 92px;
+  text-align: center;
+  white-space: nowrap;
+}
+.status.delivered {
+  background: #e7fae8;
+  color: #318342;
+}
+.status.process {
+  background: #fff8e4;
+  color: #f1a504;
+}
+.status.canceled {
+  background: #fdeaea;
+  color: #d94141;
+}
+
+/* Action buttons */
+.action {
+  border: none;
+  outline: none;
+  background: none;
+  padding: 9px;
+  margin: 0 2px;
+  border-radius: 8px;
+  font-size: 1.15em;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  transition: background 0.17s;
+}
+.action.edit {
+  color: #7d71ea;
+}
+.action.edit:hover {
+  background: #efedfa;
+}
+.action.del {
+  color: #e94a3a;
+}
+.action.del:hover {
+  background: #faeaea;
+}
+
+/* No-orders text */
+.no-orders {
+  padding: 36px;
+  color: #bdbdbd;
+  text-align: center;
+}
+
+/* Pagination */
+.pages {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  margin: 38px 0 0 0;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.page-btn,
+.page-num {
+  border-radius: 8px;
+  border: none;
+  padding: 7px 14px;
+  margin: 0 2px;
+  background: #f3f3fa;
+  color: #8b8baa;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: 500;
+  outline: none;
+  transition: background 0.15s, color 0.15s;
+}
+.page-btn:disabled {
+  background: #edeef3;
+  color: #bbb;
+  cursor: not-allowed;
+}
+.page-num.active {
+  color: #fff;
+  background: #7d71ea;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1100px) {
+  .dash-cards {
+    flex-direction: column;
+    gap: 16px;
+  }
+  .orders-table th,
+  .orders-table td {
+    padding: 12px 8px;
+    max-width: none;
+    white-space: normal; /* allow wrapping on small screens */
+  }
+  .orders-table-card {
+    padding: 20px 10px 20px 10px;
+  }
+}
