@@ -115,7 +115,7 @@ export default function OrdersTable() {
             <option value={10}>10</option>
             <option value={20}>20</option>
           </select>
-          entries
+          Entries
         </div>
         <div className="search-bar">
           <FaSearch className="icon" />

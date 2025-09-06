@@ -2,28 +2,24 @@
 .orders-container {
   background: #f8fafc;
   font-family: 'Inter', Arial, sans-serif;
-  
-  
-  width: 1121px;
-  height: 814px;
-  padding: 32px 0;
+
+  width: 100%;
+  min-height: 100vh;
+  padding: 32px 16px;
+  box-sizing: border-box;
   opacity: 1;
   transform: rotate(0deg);
-
-  /* position: absolute; needed for top/left to work */
-  top: 430px;
-  left: 265px;
 }
-
 
 /* Center dash cards, table card, controls, and pagination */
 .dash-cards,
 .orders-table-card,
 .pages,
 .controls {
-  max-width: 1100px;
+  max-width: 100%;
   margin-left: auto;
   margin-right: auto;
+  box-sizing: border-box;
 }
 
 /* === Dashboard Cards (KPI) === */
@@ -31,9 +27,11 @@
   display: flex;
   gap: 32px;
   margin-bottom: 38px;
+  flex-wrap: wrap;
 }
 .dash-card {
   flex: 1;
+  min-width: 220px;
   border-radius: 25px;
   background: #fff4;
   padding: 32px 24px 24px 32px;
@@ -56,16 +54,16 @@
 .controls {
   display: flex;
   align-items: center;
-  flex-wrap: wrap;       /* allows wrapping on small screens */
+  flex-wrap: wrap;
   gap: 14px;
-  width: 1121px;
-  height: 62px;
+  width: 100%;
   padding: 15px 16px;
   background: #FFFFFF;
   border: 1px solid #e5e7eb;
   border-radius: 8px;
   transform: rotate(0deg);
   opacity: 1;
+  box-sizing: border-box;
 }
 
 /* Show entries section */
@@ -94,6 +92,7 @@
 .search-bar {
   position: relative;
   width: 270px;
+  max-width: 100%;
 }
 
 .search-bar .icon {
@@ -144,10 +143,11 @@
   background: #f5f5f7;
   border-radius: 22px;
   box-shadow: 0 6px 32px 0 #8e99af11;
-  overflow: visible;
+  overflow-x: auto;
   margin: 28px auto 0 auto;
-  max-width: 1100px;
-  padding: 20px 24px 28px 24px;
+  width: 100%;
+  padding: 0; /* remove padding so table fits edge-to-edge */
+  box-sizing: border-box;
 }
 
 /* Table Styles */
@@ -157,15 +157,16 @@
   font-size: 0.95rem;
   background: none;
   table-layout: auto;
+  min-width: 800px;
 }
 
 /* Default all text black */
 .orders-table th,
 .orders-table td {
-  padding: 14px 16px;
+  padding: 14px 12px; /* tighter padding */
   font-size: 0.95rem;
   vertical-align: middle;
-  color: #000; /* Set all text to black */
+  color: #000;
   background: none;
   border: none;
   box-sizing: border-box;
@@ -177,13 +178,10 @@
 /* Header style */
 .orders-table th {
   background: #f5f5f7;
-  text-transform: none;          /* no uppercase */
-  font-size: 1.0rem;
+  font-size: 1rem;
   font-weight: 600;
-  color: #222;                   /* Dark color for headers */
+  color: #222;
   letter-spacing: 0.02em;
-  border-top-left-radius: 22px;
-  border-top-right-radius: 22px;
 }
 
 /* Alternate row backgrounds */
@@ -223,7 +221,7 @@
 /* Override color for Status column only */
 .orders-table td:nth-child(7),
 .orders-table th:nth-child(7) {
-  color: inherit; /* Use status badge color */
+  color: inherit;
 }
 
 /* Status badges */
@@ -293,9 +291,7 @@
   align-items: center;
   gap: 6px;
   margin: 38px 0 0 0;
-  max-width: 1100px;
-  margin-left: auto;
-  margin-right: auto;
+  width: 100%;
 }
 .page-btn,
 .page-num {
@@ -329,11 +325,7 @@
   }
   .orders-table th,
   .orders-table td {
-    padding: 12px 8px;
-    max-width: none;
-    white-space: normal; /* allow wrapping on small screens */
-  }
-  .orders-table-card {
-    padding: 20px 10px 20px 10px;
+    padding: 10px 6px;
+    white-space: normal;
   }
 }
