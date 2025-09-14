@@ -15,7 +15,7 @@ export const dashboardAPI = {
   // Get product statistics  
   getProductStats: async () => {
     try {
-      const response = await api.get('/admin/products/stats');
+      const response = await api.get('/product/stats');
       return response.data;
     } catch (error) {
       console.error('Error fetching product stats:', error);
@@ -26,7 +26,7 @@ export const dashboardAPI = {
   // Get top selling products
   getTopProducts: async (limit = 5) => {
     try {
-      const response = await api.get(`/admin/products/top?limit=${limit}`);
+      const response = await api.get(`/product/top?limit=${limit}`);
       return response.data;
     } catch (error) {
       console.error('Error fetching top products:', error);
@@ -41,6 +41,17 @@ export const dashboardAPI = {
       return response.data;
     } catch (error) {
       console.error('Error fetching recent orders:', error);
+      throw error;
+    }
+  },
+
+  // NEW: Get sales summary
+  getSalesSummary: async () => {
+    try {
+      const response = await api.get('/order/sales-summary');
+      return response.data;
+    } catch (error) {
+      console.error('Error fetching sales summary:', error);
       throw error;
     }
   }

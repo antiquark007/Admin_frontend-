@@ -21,5 +21,15 @@ export const ordersAPI = {
       console.error('Error updating order status:', error);
       throw error;
     }
+  },
+    // NEW: Get order analytics
+  getOrderAnalytics: async (days = 7) => {
+    try {
+      const response = await api.get(`/order/analytics?days=${days}`);
+      return response.data;
+    } catch (error) {
+      console.error('Error fetching order analytics:', error);
+      throw error;
+    }
   }
 };
